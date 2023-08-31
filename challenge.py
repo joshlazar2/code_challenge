@@ -22,7 +22,7 @@ with open(file_path, 'r') as f:
 
 
 # Here we initialize tiktoken so we can tokenize and encode
-# I used "p50k_base because I am using the text-davinci-003 model"
+# I used "p50k_base" because I am using the text-davinci-003 model
 encoding = tiktoken.get_encoding("p50k_base")
 
 def process_chunk(chunk):
