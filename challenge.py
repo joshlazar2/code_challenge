@@ -30,7 +30,7 @@ def process_chunk(chunk):
     # print(tokens_string)
 
 
-    # This is the prompt I send along to openai with each chunk
+    # This is the prompt I send along to openai with each chunk of conversation
     # It is constructed to retrieve any specific demographic information based on responses by the Pateint
     # It will also summarize health information based on the pateints response
     # The \n which we also see in the transcripts.json is a newline character, which in this case will ensure the chunk contents appears on a new line below the prompt
