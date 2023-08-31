@@ -22,7 +22,7 @@ with open(file_path, 'r') as f:
 
 
 # Here we initialize tiktoken so we can tokenize and encode
-encoding = tiktoken.get_encoding("cl100k_base")
+encoding = tiktoken.get_encoding("p50k_base")
 
 def process_chunk(chunk):
     # print(f"{len(chunk)} is the number of tokens in my text")
@@ -38,7 +38,7 @@ def process_chunk(chunk):
     
     # Call the OpenAI API
     response = openai.Completion.create(
-        engine="text-davinci-003",
+        model="text-davinci-003",
         prompt=prompt,
         max_tokens=150
     )
@@ -75,7 +75,7 @@ for transcript in data['transcripts']:
             # After decoding the encoded chunk, I searched for b'?\n' which was the ending of the Doctors Question
             # I also searched for b'.\n' which was the end of the Patients response to that question. If both were found then create a new chunk
             chunk_text = [encoding.decode_single_token_bytes(t) for t in current_chunk]
-            if b'?\n' in chunk_text and b'.\n' in chunk_text:
+            if chunk_text.count(b'\n') == 2:
                 # Process the current chunk
                 print(begin_chunk_separator)
                 process_chunk(current_chunk)
