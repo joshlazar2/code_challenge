@@ -72,7 +72,7 @@ for transcript in data['transcripts']:
             
             # This is where I chose how to chunk the transcripts
             # I decided to chunk the transcripts after one full statement/question by the Doctor, and one full statement by Patient
-            # After decoding the encoded chunk, I searched for b'?\n' which was the ending of the Dcotors Question
+            # After decoding the encoded chunk, I searched for b'?\n' which was the ending of the Doctors Question
             # I also searched for b'.\n' which was the end of the Patients response to that question. If both were found then create a new chunk
             chunk_text = [encoding.decode_single_token_bytes(t) for t in current_chunk]
             if b'?\n' in chunk_text and b'.\n' in chunk_text:
