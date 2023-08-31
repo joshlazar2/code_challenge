@@ -42,7 +42,8 @@ def process_chunk(chunk):
         prompt=prompt,
         max_tokens=150
     )
-    # Print the model's response
+    
+    # We can access the models response by navigating to the choices list in the response dictionary, and then accessing the text
     print(response.choices[0].text)
 
 
