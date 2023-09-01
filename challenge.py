@@ -32,8 +32,8 @@ def process_chunk(chunk):
 
 
     # This is the prompt I send along to openai with each chunk of conversation
-    # It is constructed to retrieve any specific demographic information based on responses by the Pateint
-    # It will also summarize health information based on the pateints response
+    # It is constructed to retrieve any specific demographic information based on responses by the Patient
+    # It will also summarize health information based on the patients response
     # The \n which we also see in the transcripts.json is a newline character, which in this case will ensure the chunk contents appears on a new line below the prompt
     prompt = "Extract demographic information about the patient, including their age, location, health, and any relevant personal details, from the following conversation between a doctor and a patient:\n" + encoding.decode(chunk)
     
